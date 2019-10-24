@@ -22,10 +22,14 @@ def bubble_sort(items):
     for index, item in enumerate(items):
         if index < len(items)-1:
             if item > items[index + 1]:
+                print("index: {} index+1: {}".format(items[index], items[index + 1]))
                 items[index], items[index + 1]  = items[index + 1], items[index]
-                for index in range(index + 1):
-                    if items[index] > items[index + 1]:
-                        items[index], items[index + 1]  = items[index + 1], items[index]
+                break
+                
+    if is_sorted(items) == False:
+        print('hello')
+        bubble_sort(items)
+
                 
     return items
 
@@ -50,10 +54,6 @@ def insertion_sort(items):
     # TODO: Insert it in sorted order in front of items
 
 if __name__ == '__main__':
-    array1 = [6, 7, 4, 5, 3, 1, 10, 2]
-    array1 = [6, 4, 5, 3, 1, 7, 2, 10]
-    array2 = [1, 2, 3, 4, 5, 6, 7, 8]
-    array3 = [1, 2, 3, 0, 5, 6, 7, 8]
+    array1 = [10, 7, 4, 9]
     print(bubble_sort(array1))
-    print(is_sorted(array2))
-    print(is_sorted(array3))
+  
