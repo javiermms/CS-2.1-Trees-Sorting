@@ -27,9 +27,7 @@ def bubble_sort(items):
                 break
                 
     if is_sorted(items) == False:
-        print('hello')
         bubble_sort(items)
-
                 
     return items
 
@@ -43,6 +41,27 @@ def selection_sort(items):
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
 
+    curr_min = items[0]
+    first_unsorted_num = 0
+
+    for item in enumerate(items):
+        for index, item in enumerate(items):
+            if item < curr_min:
+                curr_min = item
+                i = index
+
+        if curr_min < items[first_unsorted_num]:
+           items[first_unsorted_num], items[i] = items[i], items[first_unsorted_num]
+    
+    return items
+
+
+
+    
+
+
+
+
 
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
@@ -55,5 +74,7 @@ def insertion_sort(items):
 
 if __name__ == '__main__':
     array1 = [10, 7, 4, 9]
-    print(bubble_sort(array1))
+    array2 = [9, 19, 5, 4, 10, 1, 6]
+    print(bubble_sort(array2))
+    print(selection_sort(array2))
   
