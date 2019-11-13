@@ -41,17 +41,14 @@ def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
     unsorted item, and repeating until all items are in sorted order.
     TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Find minimum num in list
-    # TODO: switch with first unsorted element if min is less than
-    # TODO: what do you do when the min starts at the unsorted variable
+    TODO: Memory usage: O(n) -> in place swap"""
+
     
-        
+    #Outer loop goes through length of array to perform any needed swaps 
     for index in range(len(items)):
            
         curr_min = index 
-
+        #Inner loop finds the current min
         for possible_min in range(index+1, len(items)):
             if items[curr_min] > items[possible_min]:
                 curr_min = possible_min
@@ -59,14 +56,6 @@ def selection_sort(items):
         items[index], items[curr_min] = items[curr_min], items[index]
 
     return items
-
-'''
-Look at individual swaps: 
-print(items)
-print('Swaps: {}, {}  index:{} min:{}'.format(items[unsorted_index], items[curr_min],  unsorted_index, items[curr_min]))
-print('\n')
-'''
-
 
 # already in order o(n) worst O(n2)
 def insertion_sort(items):
@@ -77,28 +66,19 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
+    max_sorted = 0
+    for index in range(len(items)):
+        for sorted_index in range(max_sorted):
 
-    sorted_index = 0
-    
-    for unsorted_index in range(1,len(items)):
-        if items[unsorted_index] > items[sorted_index]: #changes first sorted number + 1
-            sorted_index = unsorted_index
-        
-        for index in range(sorted_index):
-            print(index)
-        print('--------')
-
-                
     return items
-
 if __name__ == '__main__':
     array1 = [6, 3, 2, 1]
-    array2 = [9, 19, 5, 4, 10, 1, 6, 0, 2, 3]
+    array2 = [9, 10, 5, 4, 19, 1, 6, 0, 2, 3]
     # probelm array2 = [1, 4, 5, 19, 10, 9, 6]
     # array2 = [1, 4, 5, 6, 10, 9, 19]
     # array2 = [1, 4, 5, 6, 9, 10, 19]
     # print(bubble_sort(array2))
-    print(selection_sort(array2))
-    # print(insertion_sort(array1))
+    # print(selection_sort(array2))
+    print(insertion_sort(array1))
   
   
