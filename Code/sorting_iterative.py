@@ -63,12 +63,17 @@ def insertion_sort(items):
     order in front of items, and repeating until all items are in order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Take first unsorted item
-    # TODO: Insert it in sorted order in front of items
-    max_sorted = 0
-    for index in range(len(items)):
-        for sorted_index in range(max_sorted):
+
+    for i in range(1, len(items)): 
+  
+        num = items[i] 
+
+        j = i-1
+        while j >=0 and num < items[j] : 
+                items[j+1] = items[j] 
+                j -= 1
+        items[j+1] = num
+  
 
     return items
 if __name__ == '__main__':
@@ -79,6 +84,6 @@ if __name__ == '__main__':
     # array2 = [1, 4, 5, 6, 9, 10, 19]
     # print(bubble_sort(array2))
     # print(selection_sort(array2))
-    print(insertion_sort(array1))
+    print(insertion_sort(array2))
   
   
